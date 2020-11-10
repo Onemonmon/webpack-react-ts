@@ -1,11 +1,15 @@
 const path = require("path");
 module.exports = {
+  // 构建环境
   mode: "development",
+  // 入口文件
   entry: "./src/index.js",
+  // 出口文件
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "bundle.js",
   },
+  // 模块
   module: {
     rules: [
       {
