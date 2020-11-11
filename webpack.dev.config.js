@@ -13,4 +13,10 @@ module.exports = merge(defaultConfig, {
       inject: "body",
     }),
   ],
+  devServer: {
+    historyApiFallback: true, //找不到路径时，跳转index.html
+    compress: true, //启用gzip压缩
+    hot: true,
+    port: "8001",
+  },
 });

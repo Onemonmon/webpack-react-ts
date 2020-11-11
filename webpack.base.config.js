@@ -1,4 +1,5 @@
 const path = require("path");
+
 module.exports = {
   // 构建环境
   mode: "development",
@@ -25,6 +26,13 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.jpg$|\.jepg$|\.png$/,
+        use: {
+          loader: "file-loader",
+          options: {},
+        },
       },
     ],
   },
