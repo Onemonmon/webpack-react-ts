@@ -1,4 +1,6 @@
 const path = require("path");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const SimpleProgressWebpackPlugin = require("simple-progress-webpack-plugin");
 
 module.exports = {
   // 构建环境
@@ -32,10 +34,20 @@ module.exports = {
         test: /\.jpg$|\.jepg$|\.png$/,
         exclude: /node_modules/,
         use: {
-          loader: "file-loader",
-          options: {},
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "images/",
+            limit: 10000,
+          },
         },
       },
     ],
   },
+  plugins: [
+    new BundleAnalyzerPlugin({
+      port: 8081,
+    }),
+    new SimpleProgressWebpackPlugin(),
+  ],
 };
